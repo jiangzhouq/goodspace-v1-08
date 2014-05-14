@@ -191,8 +191,12 @@
 			echo '<div class="blog-thumbnail-context">';
 			if( $sidebar != 'both-sidebar' ){ 
 				echo '<h2 class="blog-thumbnail-title post-title-color gdl-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
-			}			
-			echo '<div class="blog-thumbnail-content">' . mb_substr( get_the_excerpt(), 0, $num_excerpt ) . '</div>';	
+			}		
+			
+			//echo '<div class="blog-thumbnail-content">' . mb_substr( get_the_excerpt(), 0, $num_excerpt ) . '</div>';	
+			global $more;
+			$more = 0;
+			echo '<div class="blog-thumbnail-content">' . the_content('',FALSE,'') . '</div>';
 			echo '<a class="blog-continue-reading" href="' . get_permalink() . '"><em>' . $translator_continue_reading . '</em></a>';
 			echo '</div>'; // blog-thumbnail-context
 			
